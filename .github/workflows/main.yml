@@ -1,0 +1,33 @@
+# See 07-expressions/README.md for more information
+# about the how to use expressions in GitHub Actions.
+
+name: Test
+
+
+on:
+  push:
+  workflow_dispatch:
+    
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: '[debug] Print start-up data'
+        if: ${{ github.event-name == "push" }}
+        run: |
+          echo "Triggered by: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Runner OS: ${{ runner.os }}"
+      - name: '[debug] Print start-up data'
+        if: github.event-name == "push"
+        run: |
+          echo "Triggered by: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Runner OS: ${{ runner.os }}"
+      - name: '[debug] Print when triggered from main'
+        if: inputs.debug && github.ref == 'refs/heads/main'
+        run: echo "I was triggered from main"
+      - name: Greeting
+        run: echo "Hello, world"
