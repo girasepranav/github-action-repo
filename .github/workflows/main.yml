@@ -19,13 +19,6 @@ jobs:
           echo "Branch: ${{ github.ref }}"
           echo "Commit SHA: ${{ github.sha }}"
           echo "Runner OS: ${{ runner.os }}"
-      - name: '[debug] Print start-up data'
-        if: github.event-name == "push"
-        run: |
-          echo "Triggered by: ${{ github.event_name }}"
-          echo "Branch: ${{ github.ref }}"
-          echo "Commit SHA: ${{ github.sha }}"
-          echo "Runner OS: ${{ runner.os }}"
       - name: '[debug] Print when triggered from main'
         if: inputs.debug && github.ref == 'refs/heads/main'
         run: echo "I was triggered from main"
