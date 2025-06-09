@@ -1,0 +1,28 @@
+name: _test - Using Functions
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        type: string
+        default: 'RUN'
+ 
+jobs:
+  echo1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Failing Step
+        run: exit 1
+      - name: I will be skipped
+        if: ${{success()}}
+        run: echo "I will print if previous steps succeed"
+      - name: I will execute
+        if: ${{failure()}}
+        run: echo 'I will print if any of previous step fails.'
+      - name: I will execute
+        if: ${{!cancelled()}}
+        run: |
+          echo 'I will always print except when its cancelled'
+          echo ${{inputs.title}}
+      - name: Run this if title equals RUN
+        if: contains(inputs.title, 'RUN')
+        run: echo "Title value is RUN and hence running this step"
