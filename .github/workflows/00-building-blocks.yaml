@@ -21,7 +21,7 @@ on:
           - dev
           - uat
         default: dev
-        required: false
+        required: true
       log_level:
         description: 'Log level'
         required: false
