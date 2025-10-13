@@ -34,6 +34,11 @@ on:
     branches:
       - sunil-dev
 jobs:
+  event-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: event name
+        run: echo "I've been triggered by a(n) ${{ github.event_name }} event."
   echo-hello-job:
     runs-on: ubuntu-latest
     steps:
