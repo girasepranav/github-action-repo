@@ -1,0 +1,57 @@
+# Official GitHub Actions Documentation:
+# - Workflow Syntax: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
+# - Understanding GitHub Actions: https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
+# - GitHub Actions Quickstart: https://docs.github.com/actions/quickstart
+#
+# IntelliJ IDEA Tips (macOS):
+# - ⌃J (Ctrl+J) on an element shows quick documentation
+# - ⌃Space (Ctrl+Space) triggers IntelliSense/auto-completion
+# - ⌘Click (Cmd+Click) on links to open in browser
+
+name: 01 building blocks
+on:
+  push:
+    branches:
+      - sunil-dev
+  workflow_dispatch:
+    inputs:
+      environments:
+        description: Environment to deploy to
+        type: choice
+        options:
+          - dev
+          - uat
+        default: dev
+        required: false
+      log_level:
+        description: 'Log level'
+        required: false
+        options:
+          - debug
+          - info
+          - error
+        default: info
+
+jobs:
+  echo-hello-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo-hello
+        run: |
+          print "Hello, world!!"
+  echo-goodbye-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Failed step
+        run: |
+          print "I will fail!!"
+          exit(1)
+      - name: Say goodbye
+        run:
+          print "Goodbye!!"
+
+
+
+
+
+
