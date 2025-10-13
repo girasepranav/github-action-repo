@@ -10,11 +10,8 @@
 # - ⌃Space (Ctrl+Space) triggers IntelliSense/auto-completion
 # - ⌘Click (Cmd+Click) on links to open in browser
 
-name: 01 building blocks
+name: Building blocks
 on:
-  push:
-    branches:
-      - sunil-dev
   workflow_dispatch:
     inputs:
       environments:
@@ -33,7 +30,9 @@ on:
           - info
           - error
         default: info
-
+  push:
+    branches:
+      - sunil-dev
 jobs:
   echo-hello-job:
     runs-on: ubuntu-latest
