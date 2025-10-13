@@ -12,27 +12,31 @@
 
 name: Building blocks
 on:
-  workflow_dispatch:
-    inputs:
-      environments:
-        description: Environment to deploy to
-        type: choice
-        options:
-          - dev
-          - uat
-        default: dev
-        required: true
-      log_level:
-        description: 'Log level'
-        required: false
-        options:
-          - debug
-          - info
-          - error
-        default: info
   push:
     branches:
       - sunil-dev
+  pull_request:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+#    inputs:
+#      environments:
+#        description: Environment to deploy to
+#        type: choice
+#        options:
+#          - dev
+#          - uat
+#        default: dev
+#        required: true
+#      log_level:
+#        description: 'Log level'
+#        required: false
+#        options:
+#          - debug
+#          - info
+#          - error
+#        default: info
+
 jobs:
   event-job:
     runs-on: ubuntu-latest
