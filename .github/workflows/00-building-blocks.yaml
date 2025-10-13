@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
 # Official GitHub Actions Documentation:
 # - Workflow Syntax: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
 # - Understanding GitHub Actions: https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
