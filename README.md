@@ -1,4 +1,4 @@
-# Mastering GitHub Actions: From Beginner to Expert
+# Mastering GitHub Actions: From Beginner to Expert. This has been edited.
 
 ### Course link (with a big discount 🙂): https://www.lauromueller.com/courses/mastering-github-actions
 
